@@ -1,108 +1,110 @@
 \section{Introduction}
 \label{sec:Intro}
 
-The rapid development of machine learning and 
-especially deep learning has attracted the medical 
-imaging community’s interest in applying these 
-techniques to improve the accuracy of cancer 
-screening. Breast cancer is the second leading 
-cause of cancer deaths among U.S. women and 
-screening mammography has been proved to reduce 
-mortality
-\cite{Oeffinger2015,Zhu2019}.
-According to a study by the Breast 
-Cancer Surveillance Consortium in 2009, the 
-overall sensitivity of digital screening mammography 
-in the U.S. is 84.4$\%$ and the overall specificity 
-is 90.8$\%$
-\cite{Jamieson2012}.
-To help radiologists improve 
-the predictive accuracy of screening mammography, 
-computer-assisted detection and diagnosis (CAD) 
-software have been developed and in clinical 
-diagnosis since the 1990s. Unfortunately, data 
-suggests that commercial CAD systems have not led 
-to significant improvement in performance and 
-progress has stagnated in the past decade
-\cite{Girshick2015}.
-With the remarkable success of deep learning in 
-visual object recognition and detection, and many 
-other domains have paid more attention to it
+With the rapid development of deep learning, 
+the medical influence community has also begun 
+to try to apply this technology to improve the 
+accuracy of cancer screening.
+In the United States, breast cancer has become 
+the second highest death rate among all cancers.
+And screening mammography has become an 
+effective way to reduce mortality.
+According to a study by the Breast Cancer 
+Surveillance Consortium in 2009, the overall 
+sensitivity of digital screening mammography 
+in the U.S. is 84.4$\%$ and the overall 
+specificity is 90.8$\%$
+\cite{Oeffinger2015}.  
+Since the 1990s, the Computer-Assisted Detection 
+and Diagnosis (CAD) software has been applied 
+in clinical diagnosis, which can effectively 
+help radiologists improve the efficiency of 
+cancer detection. 
+However, according to the actual situation 
+of the application, this system is not as 
+envisaged, the effect is not obvious, and 
+there is no substantial progress in the 
+upgrade and improvement of the system.
+In recent years, deep learning has achieved 
+better results in visual object recognition 
+and detection, attracting more attention
 \cite{Lecun2015}.
-There is much interest in developing deep 
-learning tools to assist radiologists and improve 
-the accuracy of screening mammography. 
+There is much more interest in deep learning 
+to assist radiologists and improve the accuracy 
+of screening mammography
+\cite{Jamieson2012,Zhu2019,Shen2017}. 
 
-Early detection of subclinical breast cancer on 
-screening mammography is challenging as an image
-classification task because the tumors themselves 
-occupy only a small portion of the image of the
-entire breast. For example, a full-field digital 
-mammography (FFDM) image is typically 4000 × 3000
-pixels while a cancerous region of interest (ROI) 
-can be as small as 100 × 100 pixels. If ROI
-annotations were widely available in mammography 
-databases then established object detection and
-classification methods such as the region-based 
-convolutional neural network (R-CNN) and its
-variants could be readily applied
+Early detection of subclinical breast cancer 
+on screening mammography is challenging as an 
+image detection task because the tumors 
+themselves occupy only a small portion of the 
+image of the entire breast. 
+For example, a full-field digital mammography 
+(FFDM) image is typically 4000 × 3000 pixels 
+while a cancerous region of interest (ROI) 
+can be as small as 50 × 50 pixels. 
+If ROI annotations were widely available in 
+mammography databases then established object 
+detection and classification methods such as 
+the region-based convolutional neural network 
+(R-CNN) and its variants could be readily 
+applied
 \cite{Girshick2014,Girshick2015,Ren2017}.
-However, approaches that require ROI annotations 
-\cite{Dai2016}
-often cannot be transferred to large mammography 
+However, approaches that require ROI 
+annotations often cannot be transferred to large mammography 
 databases that lack ROI annotations, which are
-laborious and costly to assemble. Indeed, few 
-public mammography databases are annotated.
-Yet, deep learning requires large training datasets 
-to be most effective. Thus, it is essential to 
-leverage both the few fully annotated datasets, as 
-well as larger datasets labeled with only the 
-cancer status of each image to improve the accuracy 
+laborious and costly to assemble
+\cite{Dai2016}. 
+Thus, it is essential to leverage both the few 
+fully annotated datasets, as well as larger 
+datasets labeled with only the cancer status 
+of each image to improve the accuracy 
 of breast cancer classification algorithms.
 
-Pre-training is a promising method to address the 
-training problem. For example 
-\cite{Hinton2006,Li_2020},
-used layer-wise pre-training to initialize the 
-weight parameters of a deep belief net (DBN) with 
-three hidden layers and then fine-tuned it for 
-classification. They found that pre-training 
-improved the training speed as well as the 
-accuracy of handwritten digit recognition. Another 
-popular training method is to first train a deep 
-learning model on a large database such as the 
-ImageNet 
-\cite{Russakovsky2015,9112355}
-and then fine-tune the model for another task. 
-Although the specific task may not be related to 
-the initial training dataset, the model’s weight 
-parameters are already initialized for recognizing 
-primitive features, such as edges, corners and 
-textures, which can be readily used for a different 
-task. This often saves training time and improves 
-the model’s performance
+Pre-training is an effective way to train the 
+network.
+For example, use hierarchical pre-training to 
+initialize the weight parameters of the DBN 
+with hidden layers and then fine-tune them.
+It is easy to find that pre-training can improve 
+training speed and recognition accuracy. 
+Another common method of training, first in 
+large databases (such as ImageNet, and then 
+fine-tune the model to complete other tasks
+\cite{Russakovsky2015,9112355}.
+Although certain tasks may be independent of 
+the initial training data set, but the weight 
+of the model parameters have been initialized 
+weight, original features may be identified, 
+which are easily used for other tasks.
+This can often save training time and improve 
+the performance of the model
 \cite{He2016,Moreira2018}.
 
-To take advantage of feature extraction ability of 
-CNNs, recently researchers have proposed new 
-mammography recognition methods. However, we think 
-the ability to extratct the image features of 
-deep CNNs could be better utilized. In this study, fusing 
-different deep neural network models together to 
-propose a fine-grained mammography image 
-recognition approach via fusing multiple learned
-features. Besides, utilizing the hash decoder
-method to simplifying the classification 
-calculation of complex high-dimensional 
-feature vectors, and fusing the results of 
-different classifier in the end. Our work can 
-be summarized as follows:
+
+Inspired by \cite{Lin2020}, so and so.
+to use the feature extraction capabilities 
+of neural networks, researchers have recently 
+proposed a new mammography recognition method.
+However, we think that the underlying neural 
+network capabilities to extratct image features 
+can be better utilized.
+In this study, different deep neural network 
+models are merged to jointly propose a 
+mammography image recognition method that can 
+learn fine-grained mammography by fusing 
+multiple functions.
+In addition, the hash decoder method is used 
+to simplify the classification calculation of 
+complex high-dimensional feature vectors, 
+and the results of different classifiers are 
+merged at the end.
+In summary, our work can be shown as follows:
 
 1. Build a deep convolutional neural network based 
 on well-performed network structures, and design a 
 transfer learning strategy to improve the 
 representation power of the extracted features.
-
 
 2. To further utilize the feature representation 
 ability of CNNs, we propose a method to fuse 
@@ -121,15 +123,15 @@ the feature extraction process of Faster RCNN,
 and a deep hash learning strategy is introduced 
 in the classification stage.
 
-The rest of this paper is organized as follows. 
+This article is organized as follows. 
 Section~\ref{sec:Meth} 
 details of the network structure and the proposed 
 method. 
 Section~\ref{sec:Data} 
 elaborates the dataset used in our work.
 Section~\ref{sec:Exp} 
-demonstrates the experiment results and gives 
-discussion. 
+shows experimental results demonstrate, and 
+given the discussion.
 Section~\ref{sec:Conc} 
 makes the conclusion and future work are provided 
 in the end.

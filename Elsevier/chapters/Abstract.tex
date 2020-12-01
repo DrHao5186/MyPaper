@@ -1,35 +1,37 @@
-Breast cancer is the second leading cause of 
-cancer deaths among women and screening 
-mammography has been found to reduce 
-mortality. It is necessary to build 
+As we all know, breast cancer is one of the 
+important causes that endanger women’s health. 
+And screening mammography has become a 
+technology that can effectively control 
+breast cancer. 
+It is necessary to build 
 mammography image recognition systems. 
 Previous solutions for mammography image 
 recognition are usually based on hand-crafted 
 features methods and use but limited in 
-specific situations. Also, some methods 
-utilize simple deep learning network, which 
-can not extract the full feature of mammography,
-for example, GoogleNet, VGG16, ResNet, DenseNet, etc.
+specific situations. 
+Also, some methods utilize simple deep 
+learning network, which can not achieve a 
+good recognition effect.
 In this paper, we propose a deep learning based 
 approach with multiple feature fusion transfer 
 learning strategy. Firstly, we obtain the 
 training data from an open data set called 
-DDSM images. Then we employ data augment 
-methods, and training a deep convolutional 
-neural network to extract image features and 
-conduct the object detection job. 
-A pre-trained model is used to initialize the 
+DDSM images. 
+Then we employ data augment methods, and 
+train a novel deep neural network to detect 
+lesions and conduct the object detection job. 
+Pre-trained model is used to initialize the 
 network and help extract the basic features.
 Furthermore, we propose a fusion method that 
 makes use of multiple transfer learning models 
-in inference, to improve the accuracy on the 
-test set. Importantly, we take a strategy 
-applied by hash learning in the deep network 
-is cited to enhance the generalization ability 
-of the model and solve the challenge of 
+in inference. 
+Importantly, we take a strategy applied by hash 
+learning in the deep network is cited to 
+enhance the generalization ability of the 
+model and solve the challenge of 
 high-dimensional calculation in deep learning. 
 In the end, regression analysis to analyze 
-the object position. The experimental results 
-prove that our method achieves high accuracy on 
-the mammography image object detection 
-and inspection task.
+the object position. 
+The experimental results prove that our method 
+achieves high accuracy on the mammography image 
+object detection and inspection task.

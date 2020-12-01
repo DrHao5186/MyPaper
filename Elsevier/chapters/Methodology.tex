@@ -1,76 +1,65 @@
 \section{Methodology}
 \label{sec:Meth}
 
-The architecture of our approach can be 
-divided into 4 modules, as shown in 
+Architecture of our method can be divided into 
+4 modules, as shown in
 Figure~\ref{fig:netStruct}. 
-The first module is image feature extractor, which
-contains three pretrained models of DenseNet, which 
-are trained on ImageNet task is used as the 
-backbone of our network structure. Benefited from 
-pre-trained models, the network gains the ability to 
-extract basic features from images before training. 
+Image Feature Extractor, 
+which contains three pretrained models of 
+DenseNet, which are trained on ImageNet task 
+is used as the backbone of our network structure. 
+Benefited from pre-trained models, the network 
+gains the ability to extract basic features 
+from images before training. 
 Designing three different models has aimed for 
-diverse features. To make use of different 
-representation power of each model, fusing the
-feature from each model with weight add method.
-The second module is a hash decoder, which is aim
-at dividing randomly image features into multiple 
-branches, with each branch corresponding to one 
-hash bit. Through such steps, the model can not 
-only improve the generalization ability of the 
-model, but also simplify the calculation of 
-high-dimensional features to facilitate the work 
-of the classifier.
-The third module is employed to perform 
-classification, we also has 
-used three classifiers which contains SVM(Support
-Vector Machine), KNN(K Nearest Neighbor) and 
-RF(Random Forest). This design of classifications 
-is to help improve the accuracy of model 
-predictions.
-The fourth module is a linear regression analysis 
-model, which utilied the RPN(Region Proposal 
-Network) proposed by Faster RCNN. To do this, 
-it is aimed at marking the specific location of the 
-lesion in mammography.
+diverse features. 
+To make use of different representation power 
+of each model, fusing the feature from each 
+model with weight add method.
+Hash Decoder, wherein the image object 
+is randomly divided into a plurality of 
+branches, each bit corresponds to a hash. 
+By this step, the model can not only improve 
+the generalization ability of the model, and 
+may simplify the calculation of high-dimensional 
+features, to facilitate the work of the 
+classifier.
+Using the third module for classification, 
+we also used three classifiers, including 
+SVM (Support Vector Machine), KNN (K Nearest 
+Neighbor) and RF (Random Forest).
+This design of classifications is to help 
+improve the accuracy of model predictions.
+The fourth module is a linear regression 
+analysis model, which has been utilied the 
+RPN(Region Proposal Network) proposed by 
+Faster RCNN. 
+To do this, it is aimed at marking the specific 
+location of the lesion in mammography.
 
 \subsection{Network design}
 \label{sec:MethNet}
 
-Hand-crafted features have been widely used in the
-image classification tasks, including mammography 
-image classification tasks. Though these 
-hand-crafted feature based methods perform well, 
-they are always too complicated to build and could 
-be constrained in specific situations. With the 
-development of deep learning techniques, deep 
-convolutional neural networks have achieved 
-great success in image analysis task, because of 
-its ability to extract intricate features from 
-raw data
+Hand-crafted features have been widely used in 
+the mammography image classification tasks. 
+While feature-based approach these handmade 
+perform well, they are always too complicated 
+to build and constraints may under certain 
+circumstances.
+With the development of deep learning, deep 
+convolutional neural networks can extract 
+intricate features from raw data
 \cite{Szegedy2016,Zeiler2014}.
-By training a model with a huge amount of images, 
-the learned parameters network could gain greater 
-representation power and perform better than 
-hand-crafted feature based methods
-\cite{Jamieson2012}.
-Hence we decide to build a mammography images 
-object detection network. CNNs based approaches 
-on mammography image 
-recognition tasks have been proposed in recent 
-years, most of them train a single neural network 
-model to extract image features
-\cite{He2019}.
-After AlexNet achieved great success in the 
-ImageNet competition, the potential of deep CNNs 
-are gradually discovered by researchers, many deep 
-network architectures with good performance on 
-image classification tasks such as VGGNet, 
-GoogLeNet, ResNet, DenseNet and etc, network 
-based on these well-performed architectures are 
-naturally applied to mammography image recognition 
-task. We build a fusion network made of four 
+After AlexNet great success in ImageNet 
+competition, the potential of deep 
+CNNs are gradually discovered by researchers, 
+many deep network architectures with good 
+performance on image classification tasks 
+such as VGGNet, GoogLeNet, ResNet, DenseNet 
+and etc, network based on these well-performed
+architectures are naturally applied to 
+mammography image recognition task. 
+We build a fusion network made of four 
 modules which are feature extractor(Explained 
 in detail in 
 Section~\ref{sec:MethNetFea}), 
@@ -81,17 +70,18 @@ Section~\ref{sec:MethNetCls})
 and regression model(Explained in detail in 
 Section~\ref{sec:MethNetReg}). 
 
-\subsubsection{Feature Extract Module}
+\subsubsection{Feature Extractor Module}
 \label{sec:MethNetFea}
 
-In the feature extractor modules, building it 
-with a truncated DenseNet without the fully 
-connected layers. The backbone of DenseNet
-consists of 3 dense blocks, each dense block 
-is composed of several dense layers. The 
-number of dense layers in each dense block 
+In the modules, building it with a truncated 
+DenseNet without the fully connected layers
+\cite{Huang2017}. 
+The backbone of DenseNet consists of 3 dense 
+blocks, each ciphertext block is composed 
+of several compact layers. 
+The number of dense layers in each dense block 
 increases while the dense blocks go deeper.
-The structure of a dense block is shown in 
+Dense block structure is shown in 
 Figure~\ref{fig:DenseBlock}.
 
 \begin{figure*}[!ht]
@@ -104,44 +94,36 @@ Figure~\ref{fig:DenseBlock}.
     \label{fig:DenseBlock}
 \end{figure*} 
 
-As for the DenseNet, different from a normal 
-convolutional neural network, each dense 
-layer’s output is fed to all subsequent dense 
-layers in the same block through the dense 
-connections, which is implemented by 
-concatenation operations. In this way, global 
-information can traverse the dense block from 
-beginning to end, each dense layer can 
-acquire extra knowledge from the previous ones. 
-For a dense layer, it includes 2 basic layers, 
-each basic layer is composed of a batch 
-normalization layer, a ReLU activation 
-function
-\cite{Srivastava2014,Ioffe2015,Kingma2015} 
-and 2 convolutional layers. The first 
-convolutional layer with a 1 × 1 kernel is 
-called the bottleneck layer, and it helps to 
-reduce the feature map dimension to improve 
-calculation efficiency. The second layer 
-applies a 3 × 3 kernel to extract features. 
-Benefit from densely connections, the network 
-can extract more representative features than 
-the normal convolutional network with layers 
-connected in sequence. In addition, an 
-attention block and a transition block are 
-inserted between every two dense blocks. The 
-attention block helps the feature extractors 
-locate the most informative part of the 
-input feature map. The transition block 
-consists of a batch normalization layer 
-and a 1 × 1 convolutional layer followed 
-by 2 × 2 max pooling layer. It is set for 
-down sampling the output feature maps of 
-each dense block. While network goes deeper, 
-the size of output feature maps decreases 
-and the dimension of output feature maps 
-increases. An example of the output feature 
-maps after each dense block is shown in 
+As DenseNet, different from the normal output 
+of each dense layer are fed to all subsequent 
+dense layer in the same block are connected 
+through intensive, this is achieved by 
+operating in series.
+By this way, from beginning to end global 
+information may traverse dense blocks, each a 
+dense layer may obtain additional knowledge 
+from previous knowledge.
+For a dense layer, which comprises a base 
+layer 2, the base layer of each batch 
+normalized by layer, and two RELU activation 
+function convolution layers.
+\cite{Srivastava2014,Ioffe2015,Kingma2015}. 
+Further, a feature extractor to help 
+positioning the input feature the most 
+abundant block portion, and a transitional 
+layer and a batch standardization convolution 
+layers, followed by the largest pool layers, 
+which are inserted into each two between 
+dense blocks.
+It is set for down sampling the output feature 
+maps of each dense block. 
+With the development of the network, the 
+magnitude of the output characteristics of figure 
+decreases, while the number of dimensions will 
+increase the output characteristic of figure
+\cite{Huang2017}.
+An example of the output feature maps after 
+each dense block is shown in 
 Figure~\ref{fig:imgFea}.
 
 \begin{figure*}[!ht]
@@ -157,32 +139,35 @@ Figure~\ref{fig:imgFea}.
 
 Usually, most CNN based methods on mammography 
 image classification tasks use a single network 
-to extract features, and then feed them into 
-a classifier. However, we found that AGNet
-did this job in a different way. It tried to 
-explore the potential power of fusion features 
-extracted from different models. In which, two 
-models are fused to predict the label of input 
-image together, one is based on AlexNet and  
-there is based on GoogLeNet. It takes 
-advantage of different features with higher 
-accuracy than the single network methods.
-Inspired by AGNet, proposing an approach to 
-improve the classification accuracy by 
-fusing multiple models with the same structure 
-trained with different transfer learning 
-strategies. Note that shallower layers tend to 
-extract basic features, deeper layers tend to 
-extract abstract feature, concluding that 
-models with different layers’ parameters 
-fixed during the training phase would focus on 
-features with different complexity.
-\cite{Ciresan2012}
-At the inference phase, we fuse the trained models 
-together to make use of the different 
-feature extraction ability of each model.
+to extract features. 
+However, we found some work by different ways to 
+complete this work.
+It attempts to explore the potential of fusion 
+of features extracted from different models. 
+Wherein the fusion tag in two models with 
+predictive input image, based on a AlexNet, on 
+the other GoogleNet. 
+Compared with the single network method, it 
+utilizes different functions with higher 
+precision.
+Inspired this proposed a method has the same 
+structure by fusing, through a number of 
+different models of transfer of learning 
+strategy training to improve classification 
+accuracy.
+Note shallow layer tends to extract the basic 
+characteristics, the deeper layer tends to 
+abstract feature extraction, leading to the 
+conclusion, the fixed parameters model 
+different layers having different features will 
+focus on the complexity of the training phase.
+\cite{Ciresan2012}.
+In the inference phase, the model will be 
+trained together to take advantage of the 
+different features of each model extraction 
+capability.
 
-Different from AGNet, train 3 models with 
+Different from it, train 3 models with 
 the same structure, but freeze different 
 layers of each model while training 
 concurrently. There are two reasons why we 
@@ -213,10 +198,10 @@ the experiment we found the false positive
 and false negative instances of each model 
 are quite different, which proves that they 
 are concentrating on different kinds of 
-features. Since the 4 models keep a similar 
-network structure, the relationship between 
-features they extracted are stronger,
-and features can be fused better.
+features. Since the 3 models keep a similar 
+network structure, Their relationship 
+extracted features stronger, and better 
+integration features.
 
 \begin{figure*}[!ht]
     \centering
@@ -224,61 +209,60 @@ and features can be fused better.
         width=0.78\textwidth,
         keepaspectratio
     ]{ExtractorFusion.pdf}
-    \caption{The module of feature extractors' 
-        fusion.}
+    \caption{The module of feature through such steps, the model can not 
+    only improve the generalization ability of the 
+    model, but also simplify the calculation of 
+    high-dimensional features to facilitate the work 
+    of the classifier extractors' fusion.}
     \label{fig:extrFusion}
 \end{figure*} 
 
 As figure~\ref{fig:extrFusion}
 shows, training 3 models with parameters in 
-different block frozen in parallel. Each row 
-represents one model, the dense block in 
-bright means that the parameters in this 
+different block frozen in parallel. 
+Each row represents one model, the dense block 
+in bright means that the parameters in this 
 block are frozen during the training phase 
 while the dark block means that parameters 
-are activated. we fuse the feature of multiple 
-transfer learning models with a weighted
-sum operation. The weights of 3 models are 
-set manually in the experiments. Taking the 
-advantage of features diversity, the transfer 
-learning models fusion method achieved high
-accuracy in the mammography image recognition
-task. 
+are activated.
+we fuse the feature of multiple transfer 
+learning models with a weighted sum operation. 
+The weights of 3 models are set manually in 
+the experiments. 
+With the advantages of functional diversity, 
+the transfer learning mode fusion method 
+achieves high accuracy in mammography 
+image recognition tasks.
 
 
 \subsubsection{Hash Decoder Module}
 \label{sec:MethNetHash}
 
-After obtaining intermediate image features 
-from the module of feature extractor, we
-propose a hash decoder module to map these 
-image features to hash codes. 
-We assume each target hash code has q bits. 
-Then the outputs of the feature extractor 
-are designed to be 50q. As can be seen in 
-Figure~\ref{fig:hashDecoder}, 
-the proposed hash decoder module firstly 
-divides randomly the features vectors into 
-q slices with equal length 4. Then each 
-slice is mapped to one dimension by a 
-fully-connected layer, followed by a 
-sigmoid activation function that restricts 
-the output value in the range [0, 1],
-and a piece-wise threshold function to 
-encourage the output of binary hash bits. 
-After that, the q output hash bits are
-concatenated to be a q-bit code. A possible 
-alternative to the hash decoder module is 
-a simple fully-connected layer that maps 
-the input intermediate image features into 
-q-dimensional vectors, followed by sigmoid 
-activation functions to transform these 
-vectors into [0, 1]. Compared to this 
-alternative, the key idea of the overall 
-strategy is trying to reduce the redundancy 
-among the hash bits. Hash codes with fewer 
-redundant bits are advocated by some recent 
-research. 
+After obtaining the intermediate image 
+features from feature extractor module, 
+we propose a hash decoder module, the map 
+image features to the hash code.
+As seen in the Figure~\ref{fig:hashDecoder}, 
+the proposed hash decoder module first randomly 
+divides the feature vector into several slices 
+of equal length\cite{Lai2015}.
+Each slice is then connected by a full layer, 
+then, is in the range [0,1] to the output limit 
+value of the activation function s-shaped, and 
+the threshold function is mapped to a segment 
+of a size to encourage bit output binary hash.
+After that, connect the output hash bits as a
+code.
+A hashing decoder module may be a simple 
+alternative to complete the connection layer, 
+wherein the layer of the intermediate image 
+mapped to the input vector, the vectors then 
+converted to the activation function.
+Compared with this choice, the key idea of the 
+overall strategy is to try to reduce redundancy 
+between the hash bits.
+Several recent studies have advocated the use 
+of the hash code has fewer redundant bits.
 
 \begin{figure*}[!ht]
     \centering
@@ -290,14 +274,13 @@ research.
     \label{fig:hashDecoder}
 \end{figure*} 
 
-In order to encourage the output of a hash 
-decoder to be binary codes, we use a sigmoid 
-activation function followed by a piece-wise 
-threshold function.
+To encourage hash decoder output binary code, 
+we used activation function, then the 
+fragmentation threshold function.
 Given a 50-dimensional slice 
 $x^{(i)}(i=1,2,...q)$
-, the output of the 50-to-1 fully-connected 
-layer is defined by
+, 50 pairs of output is defined as a fully 
+connected layers
 
 \begin{equation}
     \label{eq:eq_descr_1}
@@ -335,9 +318,9 @@ this piece-wise function is defined by
 where $\epsilon$ is a small positive 
 hyper-parameter.
 
-This piece-wise threshold function 
-approximates the behavior of hard-coding, 
-and it encourages binary outputs in training. 
+This fragmentation threshold function similar 
+to a hard-coded behavior, and encourages the 
+use of binary output in the training. 
 Specifically, if the outputs from the sigmoid 
 function are in $[0, 0.5-\epsilon]$ or 
 $[0.5+\epsilon, 1]$, they are truncated to be 
@@ -382,43 +365,24 @@ the accuracy of model recognition.
     \label{fig:classifierFusion}
 \end{figure*}   
 
-As for the KNN, which is simple, easy to 
-understand, easy to implement, no need 
-to estimate parameters, no training. 
-As for the SVM,  after the training is 
-completed, most of the training samples 
-do not need to be retained, and the final 
-model is only related to the support vector.
-As for the Random Forest, which is based on 
-an ensemble of decision trees where each of the 
-trees is based on the randomly selected subset of 
-the training set. Random forest uses slightly 
-different kinds of bagging approach where a 
-subset of features is selected for the split
-at node, whereas in bagging all features are 
-used for node split. As a result, the random 
-forest is an aggregation of trees, which reduces 
-the effect of noise present in a single tree.
-Hence, bagging generally increases the 
-overall result.
-
 \subsubsection{Regression module}
 \label{sec:MethNetReg}
 
-A Region Proposal Network (RPN) takes an 
-image (of any size) as input and outputs a 
-set of rectangular object proposals, 
-each with an objectness score. To generate 
-region proposals, sliding a small network 
-over the conv feature map output by the last
-shared conv layer. This network is 
-fully connected to an n × n spatial window 
-of the input conv feature map. Each sliding 
-window is mapped to a lower-dimensional vector. 
-This vector is fed into two sibling 
-fully-connected layers — a box-regression layer 
-and a box-classification layer. As shown in
-Figure~\ref{fig:RPN}
+Proposed area network (the RPN) receiving 
+(any size) image as an input, and outputs a 
+set of rectangular objects proposed are each 
+offer it has an objective rating.
+To generate the proposed region, a slide on 
+a small network last layer output shared.
+The network is fully connected to the input 
+of the conversion characteristics of FIG 
+n × n window space.
+Each sliding window is mapped to a low 
+dimensional vectors.
+This vector is fed into two fully connected 
+layers at the box regression 
+layer and the box classification layer.
+As shown in Figure~\ref{fig:RPN}
 
 \begin{figure*}[!ht]
     \centering
@@ -432,13 +396,13 @@ Figure~\ref{fig:RPN}
 \end{figure*} 
 
 
-Note that because the mini-network operates
-in a sliding-window fashion, the 
-fully-connected layers are shared across 
-all spatial locations. This architecture is 
-naturally implemented with an n × n conv layer 
-followed by two sibling 1 × 1 conv
-layers. And the loss function is defined by
+Note that, since the small network operated 
+sliding window, the whole connection layer at 
+all spatial positions shared. 
+The architecture is naturally implemented with 
+the n×n CONV layer followed by two brothers 
+1×1 CONV layer\cite{Ren2017}.
+And the loss function is defined by
 
 \begin{equation}
     \label{eq:eq_descr_4}
@@ -446,31 +410,8 @@ layers. And the loss function is defined by
      + \lambda\frac{1}{N_{reg}}\sum_ip_i^*L_{reg}(t_i,t_i^*)
 \end{equation}
 
-Here, $i$ is the index of an anchor in a 
-mini-batch and $p_i$ is the predicted 
-probability of anchor $i$ being an object. 
-The ground-truth label $p_i^*$ is 1 if the 
-anchor is positive, and is 0 if the anchor 
-is negative. $t_i$ is a vector representing 
-the 4 parameterized coordinates of the 
-predicted bounding box, and $t_i^*$ is that
-of the ground-truth box associated with a 
-positive anchor. The classification loss 
-$L_{cls}$ is log loss over two classes 
-(object $vs$ not object). For the regression 
-loss, we use 
-$L_{reg}(t_i, t_i^*)=R(t_i, t_i^*)$ where $R$
-is the robust loss function (smooth $L_i$). 
-The term $p_i^*L_{reg}$ means the regression 
-loss is activated only for positive anchors 
-and is disabled otherwise. The outputs of
-the $cls$ and $reg$ layers consist of ${p_i}$ 
-and ${t_i}$ respectively. The two terms are 
-normalized with $N_{cls}$ and $N_{reg}$, and 
-a balancing weight $\lambda$.
-
-For regression, we adopt the parameterizations 
-of the 4 coordinates following:
+In order to perform regression, we use the 
+following 4 coordinate parameterization::
 
 \begin{eqnarray}\label{eq:eq_descr_5}
     t_x=(x-x_a)/w_a, 
@@ -483,43 +424,41 @@ of the 4 coordinates following:
     t_h^*=log(h^*/h_a)
 \end{eqnarray}
 
-where $x$, $y$, $w$, and $h$ denote the two 
-coordinates of the box center, width, and 
-height. Variables $x$, $x_a$, and $x^*$ are 
-for the predicted box, anchor box, and 
-ground-truth box respectively (likewise for 
-$y$, $w$, $h$). This can be thought of as 
+This can be thought of as 
 bounding-box regression from an anchor box 
 to a nearby ground-truth box.
 
 \subsection{Transfer learning}
 \label{sec:MethTL}
 
-Transfer learning aims to transfer knowledge 
-between related source and target domains
-\cite{Pan2010}.
-It is a useful tool in machine learning, 
-leading to a positive effect on the domains 
-that are difficult to apply because of 
-insufficient training data. Transfer learning 
-methods can be categorized into 4 classes: 
-instance-based, mapping-based, network-based,
-adversarial-based deep transfer learning
-\cite{Tan2018}.
-Network-based method is mostly used in 
-convolutional neural networks. It is achieved 
-by transferring the network structure and 
-pre-trained parameters of the source domain into 
-a part of a deep convolutional neural network 
-used in the target domain. In our work, 
-we construct feature extractor as 
-described in Section~\ref{sec:MethNetFea}, 
+Aims to transfer learning between the source 
+and target domains related to knowledge 
+transfer, which is a useful tool for machine 
+learning, can have a positive impact on the 
+field due to insufficient training data and 
+difficult to apply.
+Transfer learning methods can be divided into 
+four categories: case-based, based on the 
+mapping, network-based, learning against 
+depth migration
+\cite{Pan2010,Tan2018}.
+Most network-based approach used in the 
+convolution neural network.
+It is achieved by transferring the network 
+structure and pre-trained parameters of the 
+source domain into a part of a deep 
+convolutional neural network used in the 
+target domain. 
+In our work, we constructed a feature 
+extractor according to the following in 
+Section~\ref{sec:MethNetFea}, 
 then we initialize the network parameters 
 with the parameters of a DenseNet model 
 that were pre-trained on the ImageNet dataset.
 
-In our experiments, an input image is 
-resized to a tensor, going that dataset; 
+In our experiments, adjusting the size of 
+the input image to one piece, going that 
+dataset; 
 freezing, which consists of leaving the 
 parameters in shallow part of the 
 pretrained model unchanged and training 
@@ -529,7 +468,7 @@ ability of pretrained model. Freezing layers
 or not in training phase depends on the 
 number of category and quantity variance 
 between source and target dataset. 
-Compared to ImageNet dataset, the DDSM 
+Compared to other datasets, the DDSM 
 dataset we used are much smaller. 
 Moreover, most images in both datasets 
 are natural images, they are similar in 

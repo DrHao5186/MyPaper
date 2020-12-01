@@ -22,7 +22,7 @@ our proposed network in the experiments.
 In the training phase, we use a stochastic 
 gradient descent method with a batch size of 32, 
 \cite{Ioffe2015}
-a momentum of 0.9 and a weight decay of 
+a momentum of 0.9 and a weight attenuates of 
 0.0005 similar to optimize our models 
 for 100 epochs. As shown in 
 Figure~\ref{fig:extrFusion}, 
@@ -77,11 +77,11 @@ current model before the next epoch starts.
 \subsection{Results}
 \label{sec:ExpRes}
 
-For mammography image recognition, the DDSM 
-dataset contains 753 calcification cases, 
-providing a data-set size capable of 
-analyzing decision support systems in 
-mammography. We also compared the results 
+For mammography image recognition, DDSM 
+dataset contains 753 cases of calcifications, 
+mammography provides the ability to analyze 
+decision support system for data set size.
+We also compared the results 
 on the DDSM dataset with other methods 
 including CNN feature-based methods. 
 As shown in 
@@ -256,17 +256,19 @@ representative features.
 \subsection{Analysis the hash decoder}
 \label{ExpHash}
 
-In this work, one of the innovation points, is to 
-employ a hash decoder to reduce the difficulty
-of computing the high dimenision parameters. A 
-natural alternative to the hash decoder is
-a simple fully-connected layer followed by 
-a sigmoid layer of restricting the output 
-values’ range in [0, 1]. To investigate the 
-effectiveness of the hash decoder. Implement 
-and evaluate a single deep network-based
-DenseNet, connecting with its alternative
-choice which is a fully network. In the end,
+In this work, one of the innovation points, is 
+to employ a hash decoder to reduce the 
+difficulty of computing the high dimenision 
+parameters. 
+Natural alternative hash decoder is coupled 
+with the connection layer after an S-shaped 
+layer limits the output value in [0,1].
+To investigate the effectiveness of the hash 
+decoder. 
+Implement and evaluate a single deep 
+network-based DenseNet, connecting with its 
+alternative choice which is a fully network. 
+In the end,
 we employe a single classifier based SVM. To
 do this, to prove our hash decoder is 
 effective. As can be seen from 
@@ -276,11 +278,10 @@ the competitor with the alternative. For
 example, the architecture with hash decoder 
 achieves the accuracy of 0.581 with 48 bits, which 
 indicates an improvement of 19.7$\%$ over the 
-FC alternative. The underlying reason for
-the improvement may be that, compared to the 
-FC alternative, the output hash codes from 
-the hash decoder are less redundant to each 
-other.
+FC alternative. 
+The root cause may be improved, as compared 
+with FC Alternatively, redundancy between each 
+lower output from the hash hash code decoder.
 
 \begin{table*}[!ht]
     \caption{Comparison results of the hash 
@@ -309,14 +310,15 @@ other.
 \subsection{Comparing to the single classifier}
 \label{ExpCls}
 
-To investigate the effectiveness of the fusion
-of the classifiers. A single DenseNet is employed
-for this experiment, beacause it can maintain 
-the invariance of the feature vector and enlarging 
-the impact of classifier differences on test 
-results. The specific 
-experimental results are shown in the 
-Table~\ref{tab:tabCls}. From the data in the 
+In order to study the effectiveness of the 
+classifier fusion, the present study a single 
+DenseNet, because it can remain invariant 
+feature vectors and expand the impact of 
+differences in classification of the test 
+results.
+The specific experimental results are shown in 
+the Table~\ref{tab:tabCls}. 
+From the data in the 
 table, we can see that the difference between 
 different classifiers is more obvious, and 
 the effect of random forest is better, but 

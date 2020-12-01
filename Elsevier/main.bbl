@@ -1,0 +1,202 @@
+\begin{thebibliography}{34}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Abadi et~al.(2016)Abadi, Barham, Chen, Chen, Davis, Dean, Devin,
+  Ghemawat, Irving, Isard, Kudlur, Levenberg, Monga, Moore, Murray, Steiner,
+  Tucker, Vasudevan, Warden, Wicke, Yu, and Zheng}]{Abadi2016}
+Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., Dean, J., Devin, M.,
+  Ghemawat, S., Irving, G., Isard, M., Kudlur, M., Levenberg, J., Monga, R.,
+  Moore, S., Murray, D.~G., Steiner, B., Tucker, P., Vasudevan, V., Warden, P.,
+  Wicke, M., Yu, Y., Zheng, X., 2016. {TensorFlow: A system for large-scale
+  machine learning}. In: Proceedings of the 12th USENIX Symposium on Operating
+  Systems Design and Implementation, OSDI 2016.
+
+\bibitem[{Choukroun et~al.(2017)Choukroun, Bakalo, Ben-Ari, Askelrod-Ballin,
+  Barkan, and Kisilev}]{Choukroun2017}
+Choukroun, Y., Bakalo, R., Ben-Ari, R., Askelrod-Ballin, A., Barkan, E.,
+  Kisilev, P., 2017. {Mammogram classification and abnormality detection from
+  nonlocal labels using deep multiple instance neural network}. In: VCBM 2017 -
+  Eurographics Workshop on Visual Computing for Biology and Medicine.
+
+\bibitem[{Cireşan et~al.(2012)Cireşan, Giusti, Gambardella, and
+  Schmidhuber}]{Ciresan2012}
+Cireşan, D.~C., Giusti, A., Gambardella, L.~M., Schmidhuber, J., 2012. {Deep
+  neural networks segment neuronal membranes in electron microscopy images}.
+  In: Advances in Neural Information Processing Systems.
+
+\bibitem[{Dai et~al.(2016)Dai, Li, He, and Sun}]{Dai2016}
+Dai, J., Li, Y., He, K., Sun, J., 2016. {R-FCN: Object detection via
+  region-based fully convolutional networks}. In: Advances in Neural
+  Information Processing Systems.
+
+\bibitem[{Gao et~al.(2019)Gao, Braden, Taylor, and Pang}]{Gao2019}
+Gao, X., Braden, B., Taylor, S., Pang, W., 2019. {Towards real-time detection
+  of squamous pre-cancers from oesophageal endoscopic videos}. In: Proceedings
+  - 18th IEEE International Conference on Machine Learning and Applications,
+  ICMLA 2019.
+
+\bibitem[{Girshick(2015)}]{Girshick2015}
+Girshick, R., 2015. {Fast R-CNN}. In: Proceedings of the IEEE International
+  Conference on Computer Vision.
+
+\bibitem[{Girshick et~al.(2014)Girshick, Donahue, Darrell, and
+  Malik}]{Girshick2014}
+Girshick, R., Donahue, J., Darrell, T., Malik, J., 2014. {Rich feature
+  hierarchies for accurate object detection and semantic segmentation}. In:
+  Proceedings of the IEEE Computer Society Conference on Computer Vision and
+  Pattern Recognition.
+
+\bibitem[{Glorot et~al.(2011)Glorot, Bordes, and Bengio}]{Glorot2011}
+Glorot, X., Bordes, A., Bengio, Y., 2011. {Deep sparse rectifier neural
+  networks}. In: Journal of Machine Learning Research.
+
+\bibitem[{He et~al.(2016)He, Zhang, Ren, and Sun}]{He2016}
+He, K., Zhang, X., Ren, S., Sun, J., 2016. {Deep residual learning for image
+  recognition}. In: Proceedings of the IEEE Computer Society Conference on
+  Computer Vision and Pattern Recognition.
+
+\bibitem[{Huang et~al.(2017)Huang, Liu, {Van Der Maaten}, and
+  Weinberger}]{Huang2017}
+Huang, G., Liu, Z., {Van Der Maaten}, L., Weinberger, K.~Q., 2017. {Densely
+  connected convolutional networks}. In: Proceedings - 30th IEEE Conference on
+  Computer Vision and Pattern Recognition, CVPR 2017.
+
+\bibitem[{Ioffe and Szegedy(2015)}]{Ioffe2015}
+Ioffe, S., Szegedy, C., 2015. {Batch normalization: Accelerating deep network
+  training by reducing internal covariate shift}. In: 32nd International
+  Conference on Machine Learning, ICML 2015.
+
+\bibitem[{Jamieson et~al.(2012)Jamieson, Drukker, and Giger}]{Jamieson2012}
+Jamieson, A.~R., Drukker, K., Giger, M.~L., 2012. {Breast image feature
+  learning with adaptive deconvolutional networks}. In: Medical Imaging 2012:
+  Computer-Aided Diagnosis.
+
+\bibitem[{Jia et~al.(2014)Jia, Shelhamer, Donahue, Karayev, Long, Girshick,
+  Guadarrama, and Darrell}]{Jia2014}
+Jia, Y., Shelhamer, E., Donahue, J., Karayev, S., Long, J., Girshick, R.,
+  Guadarrama, S., Darrell, T., 2014. {Caffe: Convolutional architecture for
+  fast feature embedding}. In: MM 2014 - Proceedings of the 2014 ACM Conference
+  on Multimedia.
+
+\bibitem[{Kingma and Ba(2015)}]{Kingma2015}
+Kingma, D.~P., Ba, J.~L., 2015. {Adam: A method for stochastic optimization}.
+  In: 3rd International Conference on Learning Representations, ICLR 2015 -
+  Conference Track Proceedings.
+
+\bibitem[{Lai et~al.(2015)Lai, Pan, Liu, and Yan}]{Lai2015}
+Lai, H., Pan, Y., Liu, Y., Yan, S., 2015. {Simultaneous feature learning and
+  hash coding with deep neural networks}. In: Proceedings of the IEEE Computer
+  Society Conference on Computer Vision and Pattern Recognition.
+
+\bibitem[{Lecun et~al.(2015)Lecun, Bengio, and Hinton}]{Lecun2015}
+Lecun, Y., Bengio, Y., Hinton, G., 2015. {Deep learning}.
+
+\bibitem[{Lee et~al.(2017)Lee, Gimenez, Hoogi, Miyake, Gorovoy, and
+  Rubin}]{Lee2017}
+Lee, R.~S., Gimenez, F., Hoogi, A., Miyake, K.~K., Gorovoy, M., Rubin, D.~L.,
+  2017. {Data Descriptor: A curated mammography data set for use in
+  computer-aided detection and diagnosis research}. Scientific Data.
+
+\bibitem[{{Li} et~al.(2020){Li}, {Zhou}, {Xu}, {Luo}, and {Jiang}}]{9112355}
+{Li}, Y., {Zhou}, R., {Xu}, R., {Luo}, J., {Jiang}, S., 2020. A quantum
+  mechanics-based framework for eeg signal feature extraction and
+  classification. IEEE Transactions on Emerging Topics in Computing, 1--1.
+
+\bibitem[{Lin et~al.(2020)Lin, Qin, Peng, and Shao}]{Lin2020}
+Lin, X., Qin, F., Peng, Y., Shao, Y., 2020. {Fine-grained pornographic image
+  recognition with multiple feature fusion transfer learning}. International
+  Journal of Machine Learning and Cybernetics.
+
+\bibitem[{Liu and Lapata(2020)}]{Liu2020}
+Liu, Y., Lapata, M., 2020. {Text summarization with pretrained encoders}. In:
+  EMNLP-IJCNLP 2019 - 2019 Conference on Empirical Methods in Natural Language
+  Processing and 9th International Joint Conference on Natural Language
+  Processing, Proceedings of the Conference.
+
+\bibitem[{{M. Heath, K. Bowyer, D. Kopans} and
+  Jr.(2001)}]{M.HeathK.BowyerD.Kopans2001}
+{M. Heath, K. Bowyer, D. Kopans}, R.~M., Jr., P.~K., 2001. {The Digital
+  Database for Screening Mammography}. In: the Fifth International Workshop on
+  Digital Mammography, M.J. Yaffe, ed., Medical Physics Publishing, 2001.
+
+\bibitem[{Moreira and Fechine(2018)}]{Moreira2018}
+Moreira, D.~C., Fechine, J.~M., 2018. {A Machine Learning-based Forensic
+  Discriminator of Pornographic and Bikini Images}. In: Proceedings of the
+  International Joint Conference on Neural Networks.
+
+\bibitem[{Oeffinger et~al.(2015)Oeffinger, Fontham, Etzioni, Herzig,
+  Michaelson, Shih, Walter, Church, Flowers, LaMonte, Wolf, DeSantis,
+  Lortet-Tieulent, Andrews, Manassaram-Baptiste, Saslow, Smith, Brawley, and
+  Wender}]{Oeffinger2015}
+Oeffinger, K.~C., Fontham, E.~T., Etzioni, R., Herzig, A., Michaelson, J.~S.,
+  Shih, Y. C.~T., Walter, L.~C., Church, T.~R., Flowers, C.~R., LaMonte, S.~J.,
+  Wolf, A.~M., DeSantis, C., Lortet-Tieulent, J., Andrews, K.,
+  Manassaram-Baptiste, D., Saslow, D., Smith, R.~A., Brawley, O.~W., Wender,
+  R., 2015. {Breast cancer screening for women at average risk: 2015 Guideline
+  update from the American cancer society}.
+
+\bibitem[{Pan and Yang(2010)}]{Pan2010}
+Pan, S.~J., Yang, Q., 2010. {A survey on transfer learning}.
+
+\bibitem[{Paszke et~al.(2017)Paszke, Gross, Chintala, Chanan, Yang, Facebook,
+  Research, Lin, Desmaison, Antiga, Srl, and Lerer}]{Paszke2017}
+Paszke, A., Gross, S., Chintala, S., Chanan, G., Yang, E., Facebook, Z.~D.,
+  Research, A.~I., Lin, Z., Desmaison, A., Antiga, L., Srl, O., Lerer, A.,
+  2017. {Automatic differentiation in PyTorch}. In: Advances in Neural
+  Information Processing Systems.
+
+\bibitem[{Ren et~al.(2017)Ren, He, Girshick, and Sun}]{Ren2017}
+Ren, S., He, K., Girshick, R., Sun, J., 2017. {Faster R-CNN: Towards Real-Time
+  Object Detection with Region Proposal Networks}. IEEE Transactions on Pattern
+  Analysis and Machine Intelligence.
+
+\bibitem[{Russakovsky et~al.(2015)Russakovsky, Deng, Su, Krause, Satheesh, Ma,
+  Huang, Karpathy, Khosla, Bernstein, Berg, and Fei-Fei}]{Russakovsky2015}
+Russakovsky, O., Deng, J., Su, H., Krause, J., Satheesh, S., Ma, S., Huang, Z.,
+  Karpathy, A., Khosla, A., Bernstein, M., Berg, A.~C., Fei-Fei, L., 2015.
+  {ImageNet Large Scale Visual Recognition Challenge}. International Journal of
+  Computer Vision.
+
+\bibitem[{Shen(2017)}]{Shen2017}
+Shen, L., 2017. {End-to-end training for whole image breast cancer diagnosis
+  using an all convolutional design}.
+
+\bibitem[{Srivastava et~al.(2014)Srivastava, Hinton, Krizhevsky, Sutskever, and
+  Salakhutdinov}]{Srivastava2014}
+Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., Salakhutdinov, R.,
+  2014. {Dropout: A simple way to prevent neural networks from overfitting}.
+  Journal of Machine Learning Research.
+
+\bibitem[{Szegedy et~al.(2016)Szegedy, Vanhoucke, Ioffe, Shlens, and
+  Wojna}]{Szegedy2016}
+Szegedy, C., Vanhoucke, V., Ioffe, S., Shlens, J., Wojna, Z., 2016. {Rethinking
+  the Inception Architecture for Computer Vision}. In: Proceedings of the IEEE
+  Computer Society Conference on Computer Vision and Pattern Recognition.
+
+\bibitem[{Tan et~al.(2018)Tan, Sun, Kong, Zhang, Yang, and Liu}]{Tan2018}
+Tan, C., Sun, F., Kong, T., Zhang, W., Yang, C., Liu, C., 2018. {A survey on
+  deep transfer learning}. In: Lecture Notes in Computer Science (including
+  subseries Lecture Notes in Artificial Intelligence and Lecture Notes in
+  Bioinformatics).
+
+\bibitem[{Zeiler and Fergus(2014)}]{Zeiler2014}
+Zeiler, M.~D., Fergus, R., 2014. {Visualizing and understanding convolutional
+  networks}. In: Lecture Notes in Computer Science (including subseries Lecture
+  Notes in Artificial Intelligence and Lecture Notes in Bioinformatics).
+
+\bibitem[{Zhu et~al.(2017)Zhu, Lou, Vang, and Xie}]{Zhu2017}
+Zhu, W., Lou, Q., Vang, Y.~S., Xie, X., 2017. {Deep multi-instance networks
+  with sparse label assignment for whole mammogram classification}. In: Lecture
+  Notes in Computer Science (including subseries Lecture Notes in Artificial
+  Intelligence and Lecture Notes in Bioinformatics).
+
+\bibitem[{Zhu et~al.(2019)Zhu, Albadawy, Saha, Zhang, Harowicz, and
+  Mazurowski}]{Zhu2019}
+Zhu, Z., Albadawy, E., Saha, A., Zhang, J., Harowicz, M.~R., Mazurowski, M.~A.,
+  2019. {Deep learning for identifying radiogenomic associations in breast
+  cancer}. Computers in Biology and Medicine.
+
+\end{thebibliography}

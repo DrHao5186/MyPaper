@@ -388,3 +388,66 @@ url = {https://doi.org/10.1088{\%}2F2058-9565{\%}2Fab9f93},
 volume = {5},
 year = {2020}
 }
+@article{Lin2020,
+abstract = {Image has become a main medium of Internet information dissemination, makes it easy for an Internet visitor to get pornographic images with just few clicks on websites. It is necessary to build pornographic image recognition systems since uncontrolled spreading of adult content could be harm to the adolescents. Previous solutions for pornographic image recognition are usually based on hand-crafted features like human skin color. Hand-crafted feature based methods are straightforward to understand and use but limited in specific situations. In this paper, we propose a deep learning based approach with multiple feature fusion transfer learning strategy. Firstly, we obtain the training data from an open data set called NSFW with 120,000+ images. Images would be classified into different levels according to its content sensitivity. Then we employ data augment methods, train a deep convolutional neural network to extract image features and conduct the classification job, without the need for hand-crafted rules. A pre-trained model is used to initialize the network and help extract the basic features. Furthermore, we propose a fusion method that makes use of multiple transfer learning models in inference, to improve the accuracy on the test set. The experimental results prove that our method achieves high accuracy on the pornographic image recognition and inspection task.},
+author = {Lin, Xinnan and Qin, Feiwei and Peng, Yong and Shao, Yanli},
+doi = {10.1007/s13042-020-01157-9},
+issn = {1868808X},
+journal = {International Journal of Machine Learning and Cybernetics},
+keywords = {Image classification,Multiple feature fusion,Pornographic image recognition,Transfer learning},
+title = {{Fine-grained pornographic image recognition with multiple feature fusion transfer learning}},
+year = {2020}
+}
+@misc{Shen2017,
+abstract = {We develop an end-to-end training algorithm for whole-image breast cancer diagnosis based on mammograms. It requires lesion annotations only at the first stage of training. After that, a whole image classifier can be trained using only image level labels. This greatly reduced the reliance on lesion annotations. Our approach is implemented using an all convolutional design that is simple yet provides superior performance in comparison with the previous methods. On DDSM, our best single-model achieves a per-image AUC score of 0.88 and three-model averaging increases the score to 0.91. On INbreast, our best single-model achieves a per-image AUC score of 0.96. Using DDSM as benchmark, our models compare favorably with the current state-of-the-art. We also demonstrate that a whole image model trained on DDSM can be easily transferred to INbreast without using its lesion annotations and using only a small amount of training data. Code availability: https://github.com/lishen/end2end-all-conv},
+author = {Shen, Li},
+booktitle = {arXiv},
+doi = {10.1038/s41598-019-48995-4},
+title = {{End-to-end training for whole image breast cancer diagnosis using an all convolutional design}},
+year = {2017}
+}
+@article{Lee2017,
+abstract = {Published research results are difficult to replicate due to the lack of a standard evaluation data set in the area of decision support systems in mammography; most computer-aided diagnosis (CADx) and detection (CADe) algorithms for breast cancer in mammography are evaluated on private data sets or on unspecified subsets of public databases. This causes an inability to directly compare the performance of methods or to replicate prior results. We seek to resolve this substantial challenge by releasing an updated and standardized version of the Digital Database for Screening Mammography (DDSM) for evaluation of future CADx and CADe systems (sometimes referred to generally as CAD) research in mammography. Our data set, the CBIS-DDSM (Curated Breast Imaging Subset of DDSM), includes decompressed images, data selection and curation by trained mammographers, updated mass segmentation and bounding boxes, and pathologic diagnosis for training data, formatted similarly to modern computer vision data sets. The data set contains 753 calcification cases and 891 mass cases, providing a data-set size capable of analyzing decision support systems in mammography.},
+author = {Lee, Rebecca Sawyer and Gimenez, Francisco and Hoogi, Assaf and Miyake, Kanae Kawai and Gorovoy, Mia and Rubin, Daniel L.},
+doi = {10.1038/sdata.2017.177},
+issn = {20524463},
+journal = {Scientific Data},
+pmid = {29257132},
+title = {{Data Descriptor: A curated mammography data set for use in computer-aided detection and diagnosis research}},
+year = {2017}
+}
+@inproceedings{Huang2017,
+abstract = {Recent work has shown that convolutional networks can be substantially deeper, more accurate, and efficient to train if they contain shorter connections between layers close to the input and those close to the output. In this paper, we embrace this observation and introduce the Dense Convolutional Network (DenseNet), which connects each layer to every other layer in a feed-forward fashion. Whereas traditional convolutional networks with L layers have L connections - one between each layer and its subsequent layer - our network has L(L2+1) direct connections. For each layer, the feature-maps of all preceding layers are used as inputs, and its own feature-maps are used as inputs into all subsequent layers. DenseNets have several compelling advantages: they alleviate the vanishing-gradient problem, strengthen feature propagation, encourage feature reuse, and substantially reduce the number of parameters. We evaluate our proposed architecture on four highly competitive object recognition benchmark tasks (CIFAR-10, CIFAR-100, SVHN, and ImageNet). DenseNets obtain significant improvements over the state-of-the-art on most of them, whilst requiring less computation to achieve high performance. Code and pre-trained models are available at https://github.com/liuzhuang13/DenseNet.},
+archivePrefix = {arXiv},
+arxivId = {1608.06993},
+author = {Huang, Gao and Liu, Zhuang and {Van Der Maaten}, Laurens and Weinberger, Kilian Q.},
+booktitle = {Proceedings - 30th IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2017},
+doi = {10.1109/CVPR.2017.243},
+eprint = {1608.06993},
+isbn = {9781538604571},
+title = {{Densely connected convolutional networks}},
+year = {2017}
+}
+@inproceedings{Lai2015,
+abstract = {Similarity-preserving hashing is a widely-used method for nearest neighbour search in large-scale image retrieval tasks. For most existing hashing methods, an image is first encoded as a vector of hand-engineering visual features, followed by another separate projection or quantization step that generates binary codes. However, such visual feature vectors may not be optimally compatible with the coding process, thus producing sub-optimal hashing codes. In this paper, we propose a deep architecture for supervised hashing, in which images are mapped into binary codes via carefully designed deep neural networks. The pipeline of the proposed deep architecture consists of three building blocks: 1) a sub-network with a stack of convolution layers to produce the effective intermediate image features; 2) a divide-and-encode module to divide the intermediate image features into multiple branches, each encoded into one hash bit; and 3) a triplet ranking loss designed to characterize that one image is more similar to the second image than to the third one. Extensive evaluations on several benchmark image datasets show that the proposed simultaneous feature learning and hash coding pipeline brings substantial improvements over other state-of-the-art supervised or unsupervised hashing methods.},
+archivePrefix = {arXiv},
+arxivId = {1504.03410},
+author = {Lai, Hanjiang and Pan, Yan and Liu, Ye and Yan, Shuicheng},
+booktitle = {Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition},
+doi = {10.1109/CVPR.2015.7298947},
+eprint = {1504.03410},
+isbn = {9781467369640},
+issn = {10636919},
+title = {{Simultaneous feature learning and hash coding with deep neural networks}},
+year = {2015}
+}
+@article{Akhtar2020,
+abstract = {Automatic number plate recognition system is a mass surveillance embedded system that recognizes the number plate of the vehicle. This system is generally used for traffic management applications. It should be very efficient in detecting the number plate in noisy as well as in low illumination and also within required time frame. This paper proposes a number plate recognition method by processing vehicle's rear or front image. After image is captured, processing is divided into four steps which are preprocessing, number plate localization, character segmentation and character recognition. Preprocessing enhances the image for further processing, number plate localization extracts the number plate region from the image, character segmentation separates the individual characters from the extracted number plate, and character recognition identifies the optical characters by using random forest classification algorithm. Experimental results reveal that the accuracy of this method is 90.9{\%}.},
+author = {Akhtar, Zuhaib and Ali, Rashid},
+doi = {10.1007/s42979-020-00145-8},
+issn = {2662-995X},
+journal = {SN Computer Science},
+title = {{Automatic Number Plate Recognition Using Random Forest Classifier}},
+year = {2020}
+}
+
